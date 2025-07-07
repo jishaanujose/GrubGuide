@@ -1,0 +1,12 @@
+audio-recorder-streamlit==0.0.10
+google_search_results==2.4.2
+groq==0.29.0
+langchain== 0.3.26
+langchain-core==0.3.68
+langchain-text-splitters==0.3.8
+langsmith==0.4.4
+matplotlib==3.10.3
+numpy==2.3.1
+openai==1.93.0
+pandas==2.3.0 
+streamlit==1.46.1 
