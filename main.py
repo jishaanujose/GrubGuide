@@ -108,7 +108,8 @@ if st.session_state.selected_hotel is None:
                     f.write(audio_bytes)
                 # st.success(f"🎙 Audio Recorded!")
                 query=speech_to_text('audio.wav')
-                print(query)
+        if audio_bytes:
+           st.write(f'User query : {query}')
         st.session_state.query=query
     if st.session_state.query:
             query=st.session_state.query
@@ -119,7 +120,7 @@ if st.session_state.selected_hotel is None:
             prompt='''You are a helpful assistant who help to understand what does the user want to do. \n
                         Extract and return in a single liner just the key intention of the user like what, where, what time. Return ONLY the single liner intention.'''
             intent = get_intent_from_llm(query,prompt)
-            if "restaurant" in intent or "hotel" in intent or "ice cream" in intent or "food court" in intent:
+            if "restaurant" in intent or "hotel" in intent or "ice cream" in intent or "food court" in intent or "food" in intent:
                 hotels,all_results = hotel_details(intent)
                 st.subheader("Search results:")
                 for id,hotel in enumerate(hotels):
