@@ -1,6 +1,6 @@
 from groq import Groq
 import json
-groq_api='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'
+groq_api=st.secrets["groq_api_key"]
 
 def extract_profile_from_chat(chat_text):
     client = Groq(
