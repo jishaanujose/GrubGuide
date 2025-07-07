@@ -1,6 +1,6 @@
 import json
 from serpapi import GoogleSearch
-serp_api_ren='ce5252cba6a791bb8a67049fb40bf691d5fb5f05d4fc23e43ea0191b757cc3c6'
+serp_api_ren=st.secrets['serp_api_ren']
 
 def hotel_details(query):
     params = {
