@@ -1,5 +1,6 @@
 from groq import Groq
-groq_api='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'
+import streamlit as st
+groq_api=st.secrets["groq_api_key"]
 # Initialize the Groq client
 client = Groq(api_key=groq_api,)
 
