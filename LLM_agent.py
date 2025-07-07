@@ -1,5 +1,6 @@
 from groq import Groq
 import json
+import streamlit as st
 groq_api=st.secrets["groq_api_key"]
 
 def extract_profile_from_chat(chat_text):
