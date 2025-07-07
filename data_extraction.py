@@ -1,5 +1,6 @@
 import json
 from serpapi import GoogleSearch
+import streamlit as st
 serp_api_ren=st.secrets['serp_api_ren']
 
 def hotel_details(query):
