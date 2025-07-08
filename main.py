@@ -91,11 +91,13 @@ if st.session_state.selected_hotel is None:
             st.session_state.query = query
         if button1:
             st.session_state.query=''
+            st.session_state.serp_results = None
         if button2:
             st.session_state.selected_hotel = None
             st.session_state.query = None
             st.session_state.user_details = {}
             st.session_state.chat_history = []
+            st.session_state.serp_results = None
             st.rerun()
     if st.session_state.query=='':
         col1, col2 = st.columns([8, 0.45])
