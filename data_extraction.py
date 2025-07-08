@@ -13,10 +13,10 @@ def hotel_details(query):
 
     search = GoogleSearch(params)
     results = search.get_dict()
-    # with open('sample_serp_search.json', 'w') as f:
-    #     json.dump(results, f)
-    # with open('sample_serp_search.json', 'r') as f:
-    #     results=json.load(f)
+    with open('sample_serp_search.json', 'w') as f:
+        json.dump(results, f)
+    with open('sample_serp_search.json', 'r') as f:
+        results=json.load(f)
     print('---------------')
     print(results)
     print('---------------')
@@ -43,8 +43,10 @@ def review_extraction(data_id):
     }
     search = GoogleSearch(search_parameters)
     results = search.get_dict()
-    # with open('sample_reviws.json', 'r') as f:
-    #     results=json.load(f)
+    with open('sample_reviws.json', 'w') as f:
+        json.dump(results, f)
+    with open('sample_reviws.json', 'r') as f:
+        results=json.load(f)
     all_topics = []; all_reviews = [];all_count=[]
     for topics, rev in zip(results['topics'], results['reviews']):
         all_topics.append(topics['keyword'])
