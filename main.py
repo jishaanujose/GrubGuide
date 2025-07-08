@@ -50,6 +50,8 @@ if "user_det" not in st.session_state:
     st.session_state.user_details = {}
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
+if "serp_results" not in st.session_state:
+    st.session_state.serp_results = None
 
 st.title("GRUBGUIDE")
 st.write('Your Smart Restaurant & Hotel Assistant')
@@ -121,7 +123,12 @@ if st.session_state.selected_hotel is None:
                         Extract and return in a single liner just the key intention of the user like what, where, what time. Return ONLY the single liner intention.'''
             intent = get_intent_from_llm(query,prompt)
             if "restaurant" in intent or "hotel" in intent or "ice cream" in intent or "food court" in intent or "food" in intent:
-                hotels,all_results = hotel_details(intent)
+                #hotels,all_results = hotel_details(intent)
+                if st.session_state.serp_results is None:
+                    hotels, all_results = hotel_details(intent)
+                    st.session_state.serp_results = (hotels, all_results)
+                else:
+                    hotels, all_results = st.session_state.serp_results
                 st.subheader("Search results:")
                 for id,hotel in enumerate(hotels):
                     cols = st.columns([1, 4])
