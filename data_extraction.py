@@ -11,12 +11,12 @@ def hotel_details(query):
         "api_key":serp_api_ren
     }
 
-    # search = GoogleSearch(params)
-    # results = search.get_dict()
+    search = GoogleSearch(params)
+    results = search.get_dict()
     # with open('sample_serp_search.json', 'w') as f:
     #     json.dump(results, f)
-    with open('sample_serp_search.json', 'r') as f:
-        results=json.load(f)
+    # with open('sample_serp_search.json', 'r') as f:
+    #     results=json.load(f)
     print('---------------')
     print(results)
     print('---------------')
@@ -41,10 +41,10 @@ def review_extraction(data_id):
         "hl": 'en',
         "api_key": f'{serp_api_ren}',
     }
-    # search = GoogleSearch(search_parameters)
-    # results = search.get_dict()
-    with open('sample_reviws.json', 'r') as f:
-        results=json.load(f)
+    search = GoogleSearch(search_parameters)
+    results = search.get_dict()
+    # with open('sample_reviws.json', 'r') as f:
+    #     results=json.load(f)
     all_topics = []; all_reviews = [];all_count=[]
     for topics, rev in zip(results['topics'], results['reviews']):
         all_topics.append(topics['keyword'])
